@@ -1,6 +1,6 @@
 
 
-import aluno, professor
+import aluno, professor, turma, disciplina
 
 
 # ------- MENU 
@@ -24,6 +24,12 @@ while resp != '0':
     aluno.matricula()
   elif resp == 2:
     professor.cadastrar_prof()
+  elif resp == 3:
+    turma.turma
+  elif resp == '0':
+        print("Saindo do sistema. Até mais!")
+  else:
+        print("Opção inválida! Tente novamente.")
   
 
 
