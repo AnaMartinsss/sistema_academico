@@ -9,7 +9,8 @@ def menu():
   print('MENU')
   print('1 - Cadastrar Aluno')
   print('2 - Cadastrar Professsor')
-  print('3 - Cadastrar Turma')
+  print('3 - Cadastrar Disciplina')
+  print('4 - Cadastrar Turma')
   print('0 - Sair')
 
 resp = 1
@@ -25,6 +26,8 @@ while resp != '0':
   elif resp == 2:
     professor.cadastrar_prof()
   elif resp == 3:
+    disciplina.cadastrar_disciplina
+  elif resp == 4:
     turma.turma
   elif resp == '0':
         print("Saindo do sistema. Até mais!")

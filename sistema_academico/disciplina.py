@@ -1,7 +1,7 @@
 from random import choice, randint
 disciplinas = []
 
-def disciplina():
+def cadastrar_disciplina():
   nome = input("Digite o nome da disciplina:")
   codigo = _gerar_codigo()
   carga_horaria = input("Digite a carga horária da disciplina:")
