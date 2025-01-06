@@ -1,6 +1,11 @@
 from random import choice, randint
 turmas = []
 
+def _gerar_codigo_turma():
+    num = str(randint(1000, 9999))
+    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
+    return num + letra
+
 def turma():
   nome = input("Digite o nome da disciplina:")
   codigo = _gerar_codigo_turma()
@@ -15,10 +20,6 @@ def turma():
     })
   print(f"Turma {nome} cadastrada com sucesso! Código: {codigo}")
   
-  def _gerar_codigo_turma():
-    num = str(randint(1000, 9999))
-    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
-    return num + letra
   
 def matricular_aluno_em_turma():
     codigo_turma = input("Digite o código da turma: ")
