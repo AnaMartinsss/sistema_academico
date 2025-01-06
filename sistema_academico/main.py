@@ -1,9 +1,4 @@
-
-
 import aluno, professor, turma, disciplina
-
-
-
 
 # ------- MENU 
 
@@ -19,6 +14,9 @@ def menu():
   print("8 - Listar Disciplinas")
   print("9 - Listar Turmas")
   print("10 - Filtrar Professores por Disciplina")
+  print("11 - Alocar Disciplina em Turma")
+  print("12 - Consultar Professores Alocados em Disciplinas")
+  print("13 - Consultar Disciplinas Alocadas em Turmas")
   print("0 - Sair")
 
 resp = ''
@@ -49,13 +47,14 @@ while resp != '0':
     turma.listar_turmas()
   elif resp == '10':
     professor.listar_professores_por_disciplina()
+  elif resp == '11':
+    turma.alocar_disciplina_em_turma()
+  elif resp == '12':
+    disciplina.consultar_professores_em_disciplinas()
+  elif resp == '13':
+    turma.consultar_disciplinas_em_turma()
   elif resp == '0':
     print("Saindo do sistema. Até mais!")
   else:
     print("Opção inválida! Tente novamente.")
   
-
-
-#aluno.matricula()
-
-#aluno.print_student()

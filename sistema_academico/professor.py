@@ -26,7 +26,7 @@ print(f"Professor cadastrado com sucesso!")
  
 def _gerar_mat_prof():
     letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
-    num = str(randint(120000, 55000))
+    num = str(randint(12000, 55000))
     return letra+'-'+num
 
 def _genero():

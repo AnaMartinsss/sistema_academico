@@ -1,17 +1,16 @@
 #Projeto 1 
-# Crie um sistema escolar que permita cadastrar alunos, professores, disciplina e turma.
-# O sistema deve permitir a alocação de professores em disciplinas. 
-# O sistema deve permitir a matrícula de alunos em turmas.
-# O sistema deve permitir a alocação em disciplinas em turmas. 
-# O sistema deve permitir a consulta de alunos matriculados em turmas.
-# o sistema deve permitir a consulta de professores alocados em disciplinas.
-# O sistema deve permitir a consulta de disciplinas alocadas em turmas.
+# Crie um sistema escolar que permita cadastrar alunos, professores, disciplina e turma. = FEITO
+# O sistema deve permitir a matrícula de alunos em turmas. = FEITO
+# O sistema deve permitir a alocação em disciplinas em turmas. =  feito
+# O sistema deve permitir a consulta de alunos matriculados em turmas. = FEITO
+# o sistema deve permitir a consulta de professores alocados em disciplinas. = feito
+# O sistema deve permitir a consulta de disciplinas alocadas em turmas. = feito
 
-# Alunos: nome, matrícula, data de nasc. , sexo, endereço, telefone e e-mail.
-# Professores: nome, matrícula, data de nasc. , sexo, endereço, telefone, disciplina e e-mail,
-# Disciplina: nome, código (A1234), carga horária, professor. 
-# Turmas: nome, código (A1234), disciplina, professor, alunos (lista matrícula)
+# Alunos: nome, matrícula, data de nasc. , sexo, endereço, telefone e e-mail. = FEITO
+# Professores: nome, matrícula, data de nasc. , sexo, endereço, telefone, disciplina e e-mail, = FEITO
+# Disciplina: nome, código (A1234), carga horária, professor. = FEITO
+# Turmas: nome, código (A1234), disciplina, professor, alunos (lista matrícula) = FEITO
 
-# O sistema deve permitir a filtragem de professor por disciplina
+# O sistema deve permitir a filtragem de professor por disciplina= feito
 
 # Usar biblioteca que gera os nomes aleatórios
