@@ -2,9 +2,14 @@ from random import choice, randint
 professores = []
 disciplina_prof = []
 
+def _gerar_cod_prof():
+    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
+    num = str(randint(12000, 55000))
+    return letra+'-'+num
+
 def cadastrar_prof():
   nome = input("Digite o nome do professor: ")
-  matricula = _gerar_mat_prof()
+  codigo = _gerar_cod_prof()
   data_nasc = input("Digite a data de nascimento: ")
   genero = _genero()
   endereco = input("Digite o endereço: ")
@@ -14,7 +19,7 @@ def cadastrar_prof():
   
   professores.append({
     "nome" : nome,
-    "matricula": matricula,
+    "codigo": codigo,
     "data de nascimento": data_nasc,
     "sexo do aluno" :genero,
     "endereço" : endereco,
@@ -22,12 +27,8 @@ def cadastrar_prof():
     "email": email,
     "disciplina": disciplina 
     })
-print(f"Professor cadastrado com sucesso!")
- 
-def _gerar_mat_prof():
-    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
-    num = str(randint(12000, 55000))
-    return letra+'-'+num
+    
+  print(f"Professor cadastrado com sucesso! Código : {codigo}") 
 
 def _genero():
      while True:

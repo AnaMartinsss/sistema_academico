@@ -1,7 +1,7 @@
 #Projeto 1 
 # Crie um sistema escolar que permita cadastrar alunos, professores, disciplina e turma. = FEITO
-# O sistema deve permitir a matrícula de alunos em turmas. = FEITO
-# O sistema deve permitir a alocação em disciplinas em turmas. =  feito
+# O sistema deve permitir a matrícula de alunos em turmas. = erro
+# O sistema deve permitir a alocação em disciplinas em turmas. =  erro
 # O sistema deve permitir a consulta de alunos matriculados em turmas. = FEITO
 # o sistema deve permitir a consulta de professores alocados em disciplinas. = feito
 # O sistema deve permitir a consulta de disciplinas alocadas em turmas. = feito
@@ -13,4 +13,4 @@
 
 # O sistema deve permitir a filtragem de professor por disciplina= feito
 
-# Usar biblioteca que gera os nomes aleatórios
+# Usar biblioteca que gera os nomes aleatórios = não feito

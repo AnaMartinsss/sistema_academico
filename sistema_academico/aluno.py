@@ -2,6 +2,10 @@ from random import choice, randint
 import turma
 alunos = []
 
+def _gerar_matricula():
+    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
+    numero = str(randint(12300, 50000))
+    return numero+'-'+letra
 
 def matricula():
   nome = input("Digite o nome do aluno:")
@@ -21,12 +25,7 @@ def matricula():
     "telefone" : telefone,
     "email": email })
   
-  print(f"Aluno cadastrado com sucesso!")
-  
-def _gerar_matricula():
-    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
-    numero = str(randint(12300, 50000))
-    return numero+'-'+letra
+  print(f"Aluno cadastrado com sucesso! Matricula : {matricula}")
 
 def _genero():
     while True:
