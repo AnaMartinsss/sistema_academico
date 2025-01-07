@@ -48,7 +48,7 @@ while resp != '0':
   elif resp == '10':
     professor.listar_professores_por_disciplina()
   elif resp == '11':
-    turma.alocar_disciplina_em_turma()
+    turma.alocar_disciplina_em_turma(disciplina)
   elif resp == '12':
     disciplina.consultar_professores_em_disciplinas()
   elif resp == '13':

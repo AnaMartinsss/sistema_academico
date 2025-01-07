@@ -15,7 +15,7 @@ def cadastrar_prof():
   endereco = input("Digite o endereço: ")
   telefone = input("Digite o telefone: ")
   email = input("Digite o e-mail: ")
-  disciplina = input("Digite o código da disciplina: ")
+  disciplina = input("Digite o código da disciplina que o professor leciona: ")
   
   professores.append({
     "nome" : nome,
@@ -61,4 +61,4 @@ def listar_professores_por_disciplina():
             print(f"Nome: {professor['nome']}, Matrícula: {professor['matricula']}")
     else:
         print(f"Nenhum professor encontrado para a disciplina {disciplina_busca}.")
-    
+        

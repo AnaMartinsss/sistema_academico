@@ -43,22 +43,6 @@ def alocar_disciplina_em_turma(disciplinas):
     if not disciplinas:
         print("Nenhuma disciplina cadastrada. Cadastre uma disciplina primeiro.")
         return
-    listar_turmas()
-    turma_id = int(input("Digite o ID da turma para alocar a disciplina: "))
-    turma = next((t for t in turmas if t["id"] == turma_id), None)
-    if not turma:
-        print("Turma não encontrada.")
-        return
-    print("Disciplinas disponíveis:")
-    for disciplina in disciplinas:
-        print(f"- ID: {disciplina['id']} | Nome: {disciplina['nome_disciplina']}")
-    disciplina_id = int(input("Digite o ID da disciplina para alocação: "))
-    disciplina = next((d for d in disciplinas if d["id"] == disciplina_id), None)
-    if not disciplina:
-        print("Disciplina não encontrada.")
-        return
-    turma["disciplinas"].append(disciplina)
-    print(f"Disciplina '{disciplina['nome_disciplina']}' alocada na turma '{turma['nome_turma']}' com sucesso!")
 
 def consultar_disciplinas_em_turma():
     if not turmas:
