@@ -1,6 +1,11 @@
 from random import choice, randint
 disciplinas = []
 
+def _gerar_codigo():
+    num = str(randint(125000, 650000))
+    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
+    return num+letra
+  
 def cadastrar_disciplina():
   nome = input("Digite o nome da disciplina:")
   codigo = _gerar_codigo()
@@ -14,11 +19,7 @@ def cadastrar_disciplina():
     })
   print(f"Disciplina {nome} cadastrada com sucesso! Código: {codigo}")
 
-def _gerar_codigo():
-    num = str(randint(125000, 650000))
-    letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
-    return num+letra
-  
+ 
 def listar_disciplinas():
     if not disciplinas:
         print("Nenhuma disciplina cadastrada!")
@@ -26,7 +27,7 @@ def listar_disciplinas():
         for disciplina in disciplinas:
             print(disciplina)
 
-def consultar_professores_em_disciplinas():
+def consultar_professores_em_disciplinas(): 
     if not disciplinas:
         print("Nenhuma disciplina cadastrada.")
         return
@@ -34,10 +35,12 @@ def consultar_professores_em_disciplinas():
     for disciplina in disciplinas:
         print(f"- Código: {disciplina['codigo']} | Nome: {disciplina['nome']}")
     codigo_disciplina = input("Digite o código da disciplina para consulta: ")
-    disciplina = next((d for d in disciplinas if d["codigo"] == codigo_disciplina), None)
-    if not disciplina:
-        print("Disciplina não encontrada.")
-    elif not disciplina["professor"]:
-        print(f"A disciplina '{disciplina['nome']}' não possui professor alocado.")
-    else:
-        print(f"O professor responsável pela disciplina '{disciplina['nome']}' é: {disciplina['professor']}")
+
+    for disciplina in disciplinas:
+        if disciplina["codigo"] == codigo_disciplina:
+            if not disciplina["professor"]:
+                print(f"A disciplina '{disciplina['nome']}' não possui professor alocado.")
+            else:
+                print(f"O professor responsável pela disciplina '{disciplina['nome']}' é: {disciplina['professor']}")
+            return
+    print("Disciplina não encontrada.")

@@ -1,9 +1,11 @@
 import aluno, professor, turma, disciplina
+import time
 
 # ------- MENU 
 
 def menu():
   print('MENU')
+  time.sleep(1.5)
   print("1 - Cadastrar Aluno")
   print("2 - Cadastrar Professsor")
   print("3 - Cadastrar Disciplina")
@@ -18,43 +20,33 @@ def menu():
   print("12 - Consultar Professores Alocados em Disciplinas")
   print("13 - Consultar Disciplinas Alocadas em Turmas")
   print("0 - Sair")
+  
+acoes = {
+    '1': aluno.matricula,
+    '2': professor.cadastrar_prof,
+    '3': disciplina.cadastrar_disciplina,
+    '4': turma.turma,
+    '5': turma.matricular_aluno_em_turma,
+    '6': aluno.listar_alunos,
+    '7': professor.listar_professores,
+    '8': disciplina.listar_disciplinas,
+    '9': turma.listar_turmas,
+    '10': professor.listar_professores_por_disciplina,
+    '11': turma.alocar_disciplina_em_turma,
+    '12': disciplina.consultar_professores_em_disciplinas,
+    '13': turma.consultar_disciplinas_em_turma,
+}
 
 resp = ''
-while resp != '0':
-  
-  menu()
-
-  
+while resp != '0': 
+  menu()  
   resp = input('Digite a opção desejada: ')
   
-  if resp == '1':
-    aluno.matricula()
-  elif resp == '2':
-    professor.cadastrar_prof()
-  elif resp == '3':
-    disciplina.cadastrar_disciplina()
-  elif resp == '4':
-    turma.turma()
-  elif resp == '5':
-    turma.matricular_aluno_em_turma()
-  elif resp == '6':
-    aluno.listar_alunos()
-  elif resp == '7':
-    professor.listar_professores()
-  elif resp == '8':
-    disciplina.listar_disciplinas()
-  elif resp == '9':
-    turma.listar_turmas()
-  elif resp == '10':
-    professor.listar_professores_por_disciplina()
-  elif resp == '11':
-    turma.alocar_disciplina_em_turma(disciplina)
-  elif resp == '12':
-    disciplina.consultar_professores_em_disciplinas()
-  elif resp == '13':
-    turma.consultar_disciplinas_em_turma()
+  if resp in acoes:
+        acoes[resp]()  
+        time.sleep(3)
   elif resp == '0':
-    print("Saindo do sistema. Até mais!")
+        print("Saindo do sistema. Até mais!")
   else:
-    print("Opção inválida! Tente novamente.")
-  
+        print("Opção inválida! Tente novamente.")
+        time.sleep(2)

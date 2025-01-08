@@ -13,4 +13,6 @@
 
 # O sistema deve permitir a filtragem de professor por disciplina= feito
 
+
+#Implementar banco de dados sqlite = não feito 
 # Usar biblioteca que gera os nomes aleatórios = não feito

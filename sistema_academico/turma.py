@@ -1,5 +1,4 @@
 from random import choice, randint
-import aluno
 turmas = []
 
 def _gerar_codigo_turma():
@@ -44,19 +43,40 @@ def alocar_disciplina_em_turma(disciplinas):
         print("Nenhuma disciplina cadastrada. Cadastre uma disciplina primeiro.")
         return
 
+    listar_turmas()
+    turma_id = input("Digite o código da turma para alocar a disciplina: ")
+
+    for turma in turmas:
+        if turma["codigo"] == turma_id:
+            print("Disciplinas disponíveis:")
+            for disciplina in disciplinas:
+                print(f"- Código: {disciplina['codigo']} | Nome: {disciplina['nome']}")
+            disciplina_codigo = input("Digite o código da disciplina para alocação: ")
+            for disciplina in disciplinas:
+                if disciplina["codigo"] == disciplina_codigo:
+                    if "disciplinas" not in turma:
+                        turma["disciplinas"] = []
+                    turma["disciplinas"].append(disciplina)
+                    print(f"Disciplina '{disciplina['nome']}' alocada na turma '{turma['nome']}' com sucesso!")
+                    return
+            print("Disciplina não encontrada.")
+            return
+    print("Turma não encontrada.")
+
+
 def consultar_disciplinas_em_turma():
     if not turmas:
         print("Nenhuma turma cadastrada.")
         return
     listar_turmas()
-    turma_id = int(input("Digite o ID da turma para consulta: "))
-    turma = next((t for t in turmas if t["id"] == turma_id), None)
-    if not turma:
-        print("Turma não encontrada.")
-        return
-    if not turma["disciplinas"]:
-        print(f"A turma '{turma['nome_turma']}' não possui disciplinas alocadas.")
-    else:
-        print(f"Disciplinas alocadas na turma '{turma['nome_turma']}':")
-        for disciplina in turma["disciplinas"]:
-            print(f"- {disciplina['nome_disciplina']}")
+    turma_id = input("Digite o código da turma para consulta: ")
+    for turma in turmas:
+        if turma["codigo"] == turma_id:
+            if not turma["disciplinas"]:
+                print(f"A turma '{turma['nome']}' não possui disciplinas alocadas.")
+            else:
+                print(f"Disciplinas alocadas na turma '{turma['nome']}':")
+                for disciplina in turma["disciplinas"]:
+                    print(f"- {disciplina['nome']}")
+            return
+    print("Turma não encontrada.")

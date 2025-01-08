@@ -1,4 +1,6 @@
 from random import choice, randint
+from datetime import datetime
+from time import time
 professores = []
 disciplina_prof = []
 
@@ -7,10 +9,37 @@ def _gerar_cod_prof():
     num = str(randint(12000, 55000))
     return letra+'-'+num
 
+def validar_data(data):
+    try:
+        return datetime.strptime(data, "%d/%m/%Y").date()
+    except ValueError:
+        return
+    
+def _genero():
+     while True:
+      print(f"1 - Feminino")
+      print(f"2 - Masculino")
+      opcao = input("Digite a opção desejada (1 ou 2): ")
+      
+      if opcao == '1':
+       return "Feminino"
+      elif opcao == '2':
+       return "Masculino"
+      else:
+       print(f"Opção invalida. Digite um número válido! (1 ou 2)")
+      
+
 def cadastrar_prof():
   nome = input("Digite o nome do professor: ")
   codigo = _gerar_cod_prof()
-  data_nasc = input("Digite a data de nascimento: ")
+  while True:
+   data_nasc = input("Digite a data de nascimento (DD/MM/AAAA): ")
+   data_validada = validar_data(data_nasc)
+   if data_validada:
+     break
+   else:
+    print("Data inválida! Por favor, insira no formato DD/MM/AAAA.")
+    time.sleep(1.5)
   genero = _genero()
   endereco = input("Digite o endereço: ")
   telefone = input("Digite o telefone: ")
@@ -30,19 +59,6 @@ def cadastrar_prof():
     
   print(f"Professor cadastrado com sucesso! Código : {codigo}") 
 
-def _genero():
-     while True:
-      print(f"1 - Feminino")
-      print(f"2 - Masculino")
-      opcao = input("Digite a opção desejada (1 ou 2): ")
-      
-      if opcao == '1':
-       return "Feminino"
-      elif opcao == '2':
-       return "Masculino"
-      else:
-       print(f"Opção invalida. Digite um número válido! (1 ou 2)")
-      
 def listar_professores():
     if not professores:
         print("Nenhum professor cadastrado!")
