@@ -1,8 +1,10 @@
+import sqlite3
 from random import choice, randint
 from datetime import datetime
 from time import time
-professores = []
-disciplina_prof = []
+
+def conectar_banco():
+    return sqlite3.connect("sistema_academico.db")
 
 def _gerar_cod_prof():
     letra = choice(('A', 'B', 'C', 'D', 'E', 'F'))
@@ -39,42 +41,50 @@ def cadastrar_prof():
      break
    else:
     print("Data inválida! Por favor, insira no formato DD/MM/AAAA.")
-    time.sleep(1.5)
+    time.sleep(1)
   genero = _genero()
   endereco = input("Digite o endereço: ")
   telefone = input("Digite o telefone: ")
   email = input("Digite o e-mail: ")
   disciplina = input("Digite o código da disciplina que o professor leciona: ")
   
-  professores.append({
-    "nome" : nome,
-    "codigo": codigo,
-    "data de nascimento": data_nasc,
-    "sexo do aluno" :genero,
-    "endereço" : endereco,
-    "telefone" : telefone,
-    "email": email,
-    "disciplina": disciplina 
-    })
+  conn = conectar_banco()
+  cursor = conn.cursor()
+  cursor.execute('''INSERT INTO professores (nome, codigo, data_nascimento, genero, endereco, telefone, email, disciplina)VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
+        (nome, codigo, data_nasc, genero, endereco, telefone, email, disciplina))
+  conn.commit()
+  conn.close()
     
   print(f"Professor cadastrado com sucesso! Código : {codigo}") 
 
 def listar_professores():
+    conn = conectar_banco()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM professores")
+    professores = cursor.fetchall()
+    conn.close()
+
     if not professores:
         print("Nenhum professor cadastrado!")
     else:
+        print("Professores cadastrados:")
         for professor in professores:
-            print(professor)
-            
-def listar_professores_por_disciplina():
-    disciplina_busca = input("Digite o nome da disciplina: ")
+            print(f"ID: {professor[0]}, Nome: {professor[1]}, Código: {professor[2]}, Data de Nascimento: {professor[3]}, "
+                  f"Gênero: {professor[4]}, Endereço: {professor[5]}, Telefone: {professor[6]}, Email: {professor[7]}, Disciplina: {professor[8]}")
 
-    professores_filtrados = [professor for professor in professores if professor["disciplina"].lower() == disciplina_busca.lower()]
+def listar_professores_por_disciplina():
+    disciplina_busca = input("Digite o código da disciplina: ")
+    conn = conectar_banco()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM professores WHERE disciplina = ?", (disciplina_busca,))
+    professores_filtrados = cursor.fetchall()
+    conn.close()
 
     if professores_filtrados:
         print(f"Professores que lecionam a disciplina {disciplina_busca}:")
         for professor in professores_filtrados:
-            print(f"Nome: {professor['nome']}, Matrícula: {professor['matricula']}")
+            print(f"ID: {professor[0]}, Nome: {professor[1]}, Código: {professor[2]}")
     else:
-        print(f"Nenhum professor encontrado para a disciplina {disciplina_busca}.")
-        
+        print(f"Nenhum professor encontrado para a disciplina {disciplina_busca}.") 

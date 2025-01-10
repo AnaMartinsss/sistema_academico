@@ -1,11 +1,12 @@
 import aluno, professor, turma, disciplina
 import time
+from banco import criar_tabelas
 
 # ------- MENU 
 
 def menu():
   print('MENU')
-  time.sleep(1.5)
+  time.sleep(1)
   print("1 - Cadastrar Aluno")
   print("2 - Cadastrar Professsor")
   print("3 - Cadastrar Disciplina")
