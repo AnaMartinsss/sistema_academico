@@ -14,7 +14,7 @@ def conectar_banco():
 def criar_tabelas():
     conn, cursor = conectar_banco()
     
-    cursor.execute("DROP TABLE IF EXISTS professores")
+    #cursor.execute("DROP TABLE IF EXISTS professores")
 
     cursor.execute('CREATE TABLE IF NOT EXISTS alunos (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, matricula TEXT, data_nascimento TEXT, genero TEXT, endereco TEXT, telefone TEXT, email TEXT)')
     cursor.execute('''CREATE TABLE disciplinas (id INTEGER PRIMARY KEY AUTOINCREMENT,nome TEXT,codigo TEXT,carga_horaria TEXT,professor_nome TEXT)''')
@@ -29,7 +29,7 @@ def criar_tabelas():
     conn.close()
     print("Banco de dados e tabelas configurados com sucesso!")
     
-    if __name__ == "__main__":
-     criar_tabelas()
+    #if __name__ == "__main__":
+     #criar_tabelas()
     
   
